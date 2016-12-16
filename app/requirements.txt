@@ -6,7 +6,7 @@ Flask-WTF
 flask-principal
 WTForms
 mongoengine
-flask_mongoengine
+flask-mongoengine
 markdown2
 bleach
 python-dateutil

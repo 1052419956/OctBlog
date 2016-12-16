@@ -1,22 +1,17 @@
 version: '2'
 services:
-  blog:
-    # restart: always
-    # build: ./app
+   octblog:
     image: gevin/octblog:0.1
-    ports:
-      - "8000:8000"
+    volumes: 
+      - ./app:/usr/src/app
     links:
       - mongo:mongo
-    # volumes:
-    #   - /usr/src/app/static
+    ports:
+      - 5000:5000
+    command: python manage.py runserver
     env_file: .env
-
-  mongo:
-    # restart: always
-    image: mongo:latest
-    env_file: .env
-
-    volumes:
-      - /data/db
-
+   mongo:
+      image: mongo:3.2
+      env_file: .env
+      volumes:
+        - /mongo/data
